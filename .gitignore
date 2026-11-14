@@ -1,0 +1,7 @@
+node_modules/
+.env
+data/
+private/
+stock-initial.csv
+*.sqlite*
+.DS_Store

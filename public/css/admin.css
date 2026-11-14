@@ -1,0 +1,27 @@
+:root { --fond:#F4F2EE; --surface:#FFF; --texte:#1B2A41; --doux:#5B6472; --ligne:#E3DED4; --metal:#C9A24B; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--fond); color: var(--texte); font: 15px/1.5 "Manrope", system-ui, sans-serif; }
+header { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between; padding: 14px max(16px, env(safe-area-inset-left)); background: var(--texte); color: #FFF; }
+header nav { display: flex; gap: 16px; } header a { color: #E2C783; }
+main { max-width: 1200px; margin: 0 auto; padding: 20px max(16px, env(safe-area-inset-left)); }
+h1 { margin: 0 0 16px; } h2 { margin: 0 0 12px; font-size: 1.1rem; }
+.carte { background: var(--surface); border: 1px solid var(--ligne); border-radius: 12px; padding: 16px; margin-bottom: 18px; }
+.msg { background: #E8F3EC; border: 1px solid #9BC8AC; padding: 10px 12px; border-radius: 8px; }
+form { display: grid; gap: 10px; } form.enligne { display: inline-flex; gap: 6px; align-items: center; }
+.filtres { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+label { display: grid; gap: 4px; font-weight: 700; }
+input, select, textarea { font: inherit; padding: 8px 10px; border: 1px solid var(--ligne); border-radius: 8px; background: #FFF; }
+form.enligne input { width: 90px; }
+button { font: inherit; font-weight: 700; padding: 8px 14px; border-radius: 8px; border: 0; background: var(--texte); color: #FFF; cursor: pointer; }
+button.danger { background: #B3261E; padding: 6px 10px; }
+.defile { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th, td { text-align: left; padding: 8px; border-bottom: 1px solid var(--ligne); vertical-align: top; white-space: nowrap; }
+td code { font-size: 13px; background: #F7F5F0; padding: 2px 6px; border-radius: 4px; }
+.statut { font-weight: 800; padding: 2px 8px; border-radius: 999px; background: #EEE; }
+.statut.disponible, .statut.livree { background: #E3F2E8; color: #1E7A46; }
+.statut.reserve, .statut.en_attente, .statut.payee { background: #FFF3D6; color: #8A5A00; }
+.statut.vendu { background: #E8ECF3; color: #1B2A41; }
+.statut.a_rembourser, .statut.annulee { background: #FBE4E2; color: #B3261E; }
+.alerte { color: #B3261E; font-weight: 700; }
+.aide { color: var(--doux); font-size: 13px; }

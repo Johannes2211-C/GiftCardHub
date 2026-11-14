@@ -1,0 +1,16 @@
+<!--
+  BLOC DE PAIEMENT EXPRESS — à coller dans un bloc « HTML personnalisé » de WordPress
+  (ou dans n'importe quelle page HTML).
+
+  1. Remplace https://www.ton-domaine.fr par l'adresse de ton serveur Node (Render / hPanel).
+  2. data-produit : l'identifiant de l'article (ex. steam, netflix, pack-famille…),
+     voir la liste dans config/boutique.config.js.
+  3. Sur le serveur, ajoute l'adresse de ton site WordPress dans ALLOWED_ORIGINS.
+
+  Le bouton PayPal et le bouton « Carte de débit ou de crédit » (Visa, Mastercard)
+  apparaissent après « Payer » : l'argent arrive sur le compte PayPal lié à ton Client ID.
+  Plusieurs blocs peuvent cohabiter sur la même page.
+-->
+<div class="ccp" data-api="https://www.ton-domaine.fr" data-produit="steam" data-montant="50"></div>
+<link rel="stylesheet" href="https://www.ton-domaine.fr/embed/bloc-paiement.css">
+<script src="https://www.ton-domaine.fr/embed/bloc-paiement.js" defer></script>
