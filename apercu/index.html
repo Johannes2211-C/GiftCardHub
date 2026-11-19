@@ -1,0 +1,108 @@
+<meta charset="utf-8">
+<title>Gift Card Store</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="cc-mode" content="apercu">
+<meta name="theme-color" content="#1B2A41">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,500&family=Manrope:wght@400;500;600;700;800&family=Chakra+Petch:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<script>document.documentElement.dataset.boutique="general";document.documentElement.setAttribute('style',"--c-interface:#1B2A41;--c-interface-texte:#FFFFFF;--c-fond:#F7F5F0;--c-surface:#FFFFFF;--c-texte:#1B2A41;--c-bouton:#1B2A41;--c-bouton-texte:#FFFFFF;--c-accent:#1B2A41;--c-metal:#C9A24B");</script>
+<script src="js/gabarits.js" defer charset="utf-8"></script>
+<script type="module" src="js/app.js"></script>
+
+<a class="evitement" href="#catalogue">Skip to catalogue</a>
+<header class="barre" id="barre">
+  <a class="logo" href="./" data-lien="facade" aria-label="Gift Cards — back to the storefront">
+    <span class="logo-monogramme" aria-hidden="true">CC</span><span class="logo-nom">Gift Cards</span>
+  </a>
+  <nav class="onglets" aria-label="The 3 stores"><a class="onglet" href="shop/black-friday" data-boutique="black-friday"><span class="onglet-pastille" style="background:#0B0B0C;border-color:#FF7A1A"></span>Black Friday</a><a class="onglet" href="shop/general" data-boutique="general"><span class="onglet-pastille" style="background:#1B2A41;border-color:#C9A24B"></span>General</a><a class="onglet" href="shop/christmas" data-boutique="christmas"><span class="onglet-pastille" style="background:#1E4D2B;border-color:#D4AF37"></span>Christmas</a></nav>
+  <div class="recherche" role="search">
+    <label class="sr" for="q">Search for a card</label>
+    <svg class="recherche-icone" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M10 3a7 7 0 0 1 5.6 11.2l4.6 4.6-1.4 1.4-4.6-4.6A7 7 0 1 1 10 3Zm0 2a5 5 0 1 0 0 10 5 5 0 0 0 0-10Z"/></svg>
+    <input id="q" type="search" placeholder="Steam, Netflix, gaming…" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="suggestions" aria-autocomplete="list">
+    <ul id="suggestions" class="suggestions" role="listbox" hidden></ul>
+  </div>
+  <button type="button" class="btn-panier" id="btn-panier" aria-label="Cart: 0 items, total €0">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 4V3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v1h3a1 1 0 0 1 1 1v15a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a1 1 0 0 1 1-1h3Zm2 0h6V4H9Zm-4 2v14h14V6h-2v2h-2V6H9v2H7V6H5Z"/></svg>
+    <span class="panier-nb" id="panier-nb">0</span><span class="panier-total" id="panier-total">€0</span>
+  </button>
+  <button type="button" class="btn-son" id="btn-son" aria-pressed="false" aria-label="Turn on the store music" title="Music">
+    <svg class="son-off" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 9h4l5-4v14l-5-4H4V9Zm12.6 3 2.7-2.7-1.4-1.4-2.7 2.7-2.7-2.7-1.4 1.4 2.7 2.7-2.7 2.7 1.4 1.4 2.7-2.7 2.7 2.7 1.4-1.4L16.6 12Z"/></svg>
+    <svg class="son-on" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 9h4l5-4v14l-5-4H4V9Zm11.5 3a4.5 4.5 0 0 0-2-3.7v7.4a4.5 4.5 0 0 0 2-3.7Zm-2-8v2.1a7 7 0 0 1 0 11.8V20a9 9 0 0 0 0-16Z"/></svg>
+  </button>
+  <button type="button" class="btn-menu" id="btn-menu" aria-expanded="false" aria-controls="menu" aria-label="More options">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>
+  </button>
+  <div class="menu" id="menu" hidden>
+    <button type="button" data-action="mode">Switch to simple view</button>
+    <button type="button" data-action="son" aria-pressed="false">Music: off</button>
+    <button type="button" data-action="idee">Gift ideas</button>
+    <button type="button" data-action="newsletter">Newsletter</button>
+    <button type="button" data-action="aide">Customer service</button>
+  </div>
+</header>
+<button type="button" class="ruban-promo" id="ruban-promo" hidden></button>
+
+<main id="principal" data-fondateur="apercu">
+  <div class="scene" id="scene" aria-hidden="true"></div>
+  <div class="hud" id="hud" hidden>
+    <section class="facade-ui" id="facade-ui" hidden>
+      <p class="facade-surtitre">Gift Cards</p>
+      <h1 class="facade-titre">Digital gift cards</h1>
+      <p class="facade-sous"><svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><path fill="currentColor" d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg>Instant delivery by email <span aria-hidden="true">·</span> <svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><path fill="currentColor" d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5Zm-3 8V7a3 3 0 0 1 6 0v3H9Zm3 4a2 2 0 0 1 1 3.73V19h-2v-1.27A2 2 0 0 1 12 14Z"/></svg>Secure payment</p>
+      <div class="facade-actions">
+        <button type="button" class="btn btn-principal btn-entrer" id="btn-entrer">Enter</button>
+      </div>
+      <div class="facade-raccourcis" id="facade-raccourcis"></div>
+    </section>
+    <p class="legende-carte" id="legende" aria-live="polite" hidden></p>
+    <button type="button" class="btn-reculer" id="btn-reculer" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 20 4 12l8-8 1.4 1.4L7.8 11H20v2H7.8l5.6 5.6Z"/></svg>Back</button>
+    <p class="aide-nav" id="aide-nav" hidden></p>
+    <div class="compte" id="compte" hidden></div>
+    <nav class="stations" id="stations" aria-label="Move around the store" hidden></nav>
+    <div class="chargement" id="chargement" role="progressbar" aria-label="Loading the store" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+  </div>
+
+  <section class="catalogue" id="catalogue" aria-labelledby="catalogue-titre">
+    <div class="catalogue-entete">
+      <p class="catalogue-sur">Digital gift cards · Instant delivery by email</p>
+      <h1 id="catalogue-titre">General Store</h1>
+    </div>
+    <div id="catalogue-rayons"><section class="rayon" aria-labelledby="rayon-0"><h2 id="rayon-0" class="rayon-titre">Aisle 1 — Gaming</h2><ul class="grille"><li class="tuile"><a href="shop/general/steam" data-produit="steam"><span class="tuile-visuel"><img src="img/cartes/3d/steam.webp" alt="" loading="lazy" decoding="async"></span><span class="tuile-nom">Steam</span><span class="tuile-contenu">Games and add-ons on PC</span><span class="tuile-prix">€20 to €100</span><span class="tuile-etat ok">In stock</span></a></li><li class="tuile"><a href="shop/general/playstation-store" data-produit="playstation-store"><span class="tuile-visuel"><img src="img/cartes/3d/playstation-store.webp" alt="" loading="lazy" decoding="async"></span><span class="tuile-nom">PlayStation Store</span><span class="tuile-contenu">PlayStation games and subscriptions</span><span class="tuile-prix">€20 to €100</span><span class="tuile-etat ok">In stock</span></a></li><li class="tuile"><a href="shop/general/xbox" data-produit="xbox"><span class="tuile-visuel"><img src="img/cartes/3d/xbox.webp" alt="" loading="lazy" decoding="async"></span><span class="tuile-nom">Xbox</span><span class="tuile-contenu">Xbox games and subscriptions</span><span class="tuile-prix">€20 to €100</span><span class="tuile-etat ok">In stock</span></a></li><li class="tuile"><a href="shop/general/nintendo-eshop" data-produit="nintendo-eshop"><span class="tuile-visuel"><img src="img/cartes/3d/nintendo-eshop.webp" alt="" loading="lazy" decoding="async"></span><span class="tuile-nom">Nintendo eShop</span><span class="tuile-contenu">Nintendo games and content</span><span class="tuile-prix">€20 to €100</span><span class="tuile-etat ok">In stock</span></a></li></ul></section><section class="rayon" aria-labelledby="rayon-1"><h2 id="rayon-1" class="rayon-titre">Aisle 2 — Apple &amp; Google</h2><ul class="grille"><li class="tuile"><a href="shop/general/apple-gift-card" data-produit="apple-gift-card"><span class="tuile-visuel"><img src="img/cartes/3d/apple-gift-card.webp" alt="" loading="lazy" decoding="async"></span><span class="tuile-nom">Apple Gift Card</span><span class="tuile-contenu">App Store, Apple Music, iCloud</span><span class="tuile-prix">€20 to €100</span><span class="tuile-etat ok">In stock</span></a></li><li class="tuile"><a href="shop/general/app-store-itunes" data-produit="app-store-itunes"><span class="tuile-visuel"><img src="img/cartes/3d/app-store-itunes.webp" alt="" loading="lazy" decoding="async"></span><span class="tuile-nom">App Store &amp; iTunes</span><span class="tuile-contenu">Apple apps, music and movies</span><span class="tuile-prix">€20 to €100</span><span class="tuile-etat ok">In stock</span></a></li><li class="tuile"><a href="shop/general/google-play" data-produit="google-play"><span class="tuile-visuel"><img src="img/cartes/3d/google-play.webp" alt="" loading="lazy" decoding="async"></span><span class="tuile-nom">Google Play</span><span class="tuile-contenu">Apps, games and movies on Android</span><span class="tuile-prix">€20 to €100</span><span class="tuile-etat ok">In stock</span></a></li></ul></section><section class="rayon" aria-labelledby="rayon-2"><h2 id="rayon-2" class="rayon-titre">Aisle 3 — Entertainment</h2><ul class="grille"><li class="tuile"><a href="shop/general/netflix" data-produit="netflix"><span class="tuile-visuel"><img src="img/cartes/3d/netflix.webp" alt="" loading="lazy" decoding="async"></span><span class="tuile-nom">Netflix</span><span class="tuile-contenu">Shows and movies on demand</span><span class="tuile-prix">€20 to €100</span><span class="tuile-etat ok">In stock</span></a></li><li class="tuile"><a href="shop/general/spotify" data-produit="spotify"><span class="tuile-visuel"><img src="img/cartes/3d/spotify.webp" alt="" loading="lazy" decoding="async"></span><span class="tuile-nom">Spotify</span><span class="tuile-contenu">Ad-free music and podcasts</span><span class="tuile-prix">€20 to €100</span><span class="tuile-etat ok">In stock</span></a></li></ul></section><section class="rayon" aria-labelledby="rayon-3"><h2 id="rayon-3" class="rayon-titre">Aisle 4 — Shopping</h2><ul class="grille"><li class="tuile"><a href="shop/general/amazon" data-produit="amazon"><span class="tuile-visuel"><img src="img/cartes/3d/amazon.webp" alt="" loading="lazy" decoding="async"></span><span class="tuile-nom">Amazon</span><span class="tuile-contenu">Millions of items</span><span class="tuile-prix">€20 to €100</span><span class="tuile-etat ok">In stock</span></a></li><li class="tuile"><a href="shop/general/fnac-darty" data-produit="fnac-darty"><span class="tuile-visuel"><img src="img/cartes/3d/fnac-darty.webp" alt="" loading="lazy" decoding="async"></span><span class="tuile-nom">Fnac Darty</span><span class="tuile-contenu">Books, tech, home appliances</span><span class="tuile-prix">€20 to €100</span><span class="tuile-etat ok">In stock</span></a></li><li class="tuile"><a href="shop/general/zalando" data-produit="zalando"><span class="tuile-visuel"><img src="img/cartes/3d/zalando.webp" alt="" loading="lazy" decoding="async"></span><span class="tuile-nom">Zalando</span><span class="tuile-contenu">Fashion, shoes, accessories</span><span class="tuile-prix">€20 to €100</span><span class="tuile-etat ok">In stock</span></a></li></ul></section><section class="rayon" aria-labelledby="rayon-4"><h2 id="rayon-4" class="rayon-titre">Aisle 5 — Digital services</h2><ul class="grille"><li class="tuile"><a href="shop/general/microsoft-365-basic" data-produit="microsoft-365-basic"><span class="tuile-visuel"><img src="img/cartes/3d/microsoft-365-basic.webp" alt="" loading="lazy" decoding="async"></span><span class="tuile-nom">Microsoft 365 Basic (1 year)</span><span class="tuile-contenu">Cloud storage for 1 year</span><span class="tuile-prix">€30</span><span class="tuile-etat ok">In stock</span></a></li><li class="tuile"><a href="shop/general/microsoft-365-personnel" data-produit="microsoft-365-personnel"><span class="tuile-visuel"><img src="img/cartes/3d/microsoft-365-personnel.webp" alt="" loading="lazy" decoding="async"></span><span class="tuile-nom">Microsoft 365 Personal (1 year)</span><span class="tuile-contenu">Word, Excel, PowerPoint for 1 year</span><span class="tuile-prix">€30</span><span class="tuile-etat ok">In stock</span></a></li></ul></section></div>
+    <section class="holo-banniere" aria-labelledby="holo-banniere-titre"><span class="holo-balayage" aria-hidden="true"></span><svg class="holo-embleme holo-embleme-petit" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><circle class="he-fond" cx="60" cy="60" r="40"/><g class="he-a he-a1"><circle cx="60" cy="60" r="56" pathLength="100" stroke-dasharray="18 4 6 4 26 4 10 4 20 4"/></g><g class="he-a he-a2"><circle cx="60" cy="60" r="48" pathLength="100" stroke-dasharray="30 8 12 8 34 8"/></g><g class="he-a he-a3"><circle cx="60" cy="60" r="43" pathLength="100" stroke-dasharray="1 2"/></g><g class="he-seg"><path d="M60 31 L63.5 31.5 L62.4 39 L57.6 39 L56.5 31.5 Z" transform="rotate(0 60 60)"/><path d="M60 31 L63.5 31.5 L62.4 39 L57.6 39 L56.5 31.5 Z" transform="rotate(30 60 60)"/><path d="M60 31 L63.5 31.5 L62.4 39 L57.6 39 L56.5 31.5 Z" transform="rotate(60 60 60)"/><path d="M60 31 L63.5 31.5 L62.4 39 L57.6 39 L56.5 31.5 Z" transform="rotate(90 60 60)"/><path d="M60 31 L63.5 31.5 L62.4 39 L57.6 39 L56.5 31.5 Z" transform="rotate(120 60 60)"/><path d="M60 31 L63.5 31.5 L62.4 39 L57.6 39 L56.5 31.5 Z" transform="rotate(150 60 60)"/><path d="M60 31 L63.5 31.5 L62.4 39 L57.6 39 L56.5 31.5 Z" transform="rotate(180 60 60)"/><path d="M60 31 L63.5 31.5 L62.4 39 L57.6 39 L56.5 31.5 Z" transform="rotate(210 60 60)"/><path d="M60 31 L63.5 31.5 L62.4 39 L57.6 39 L56.5 31.5 Z" transform="rotate(240 60 60)"/><path d="M60 31 L63.5 31.5 L62.4 39 L57.6 39 L56.5 31.5 Z" transform="rotate(270 60 60)"/><path d="M60 31 L63.5 31.5 L62.4 39 L57.6 39 L56.5 31.5 Z" transform="rotate(300 60 60)"/><path d="M60 31 L63.5 31.5 L62.4 39 L57.6 39 L56.5 31.5 Z" transform="rotate(330 60 60)"/></g><circle class="he-coeur" cx="60" cy="60" r="19"/><g class="he-env"><rect x="49" y="52.5" width="22" height="15" rx="2"/><path d="M50 54 L60 61 L70 54"/></g></svg><div class="hbn-texte"><p class="holo-sur">Newsletter · Members first</p><h2 id="holo-banniere-titre">Join the club</h2><p>Be the first to hear about new gift cards, flash sales and holiday offers.</p></div><button type="button" class="holo-bouton" data-newsletter="simple"><span class="hb-texte">Subscribe</span><span class="hb-chevrons" aria-hidden="true">›››</span></button></section>
+    
+  </section>
+</main>
+
+<aside class="tiroir" id="fiche" role="dialog" aria-modal="true" aria-labelledby="fiche-titre" hidden>
+  <button type="button" class="tiroir-fermer" data-fermer aria-label="Close">×</button>
+  <div class="tiroir-contenu" id="fiche-contenu"></div>
+</aside>
+<aside class="tiroir" id="panier" role="dialog" aria-modal="true" aria-labelledby="panier-titre" hidden>
+  <button type="button" class="tiroir-fermer" data-fermer aria-label="Close">×</button>
+  <div class="tiroir-contenu" id="panier-contenu"></div>
+</aside>
+<aside class="tiroir" id="aide" role="dialog" aria-modal="true" aria-labelledby="aide-titre" hidden>
+  <button type="button" class="tiroir-fermer" data-fermer aria-label="Close">×</button>
+  <div class="tiroir-contenu" id="aide-contenu"></div>
+</aside>
+<aside class="tiroir" id="idee" role="dialog" aria-modal="true" aria-labelledby="idee-titre" hidden>
+  <button type="button" class="tiroir-fermer" data-fermer aria-label="Close">×</button>
+  <div class="tiroir-contenu" id="idee-contenu"></div>
+</aside>
+<aside class="tiroir holo" id="newsletter" role="dialog" aria-modal="true" aria-labelledby="newsletter-titre" hidden>
+  <button type="button" class="tiroir-fermer" data-fermer aria-label="Close">×</button>
+  <div class="tiroir-contenu" id="newsletter-contenu"></div>
+</aside>
+<div class="voile-tiroir" id="voile-tiroir" hidden></div>
+<div class="guide" id="guide" role="dialog" aria-label="Quick guide" hidden></div>
+<div class="confirmation" id="confirmation" role="dialog" aria-modal="true" aria-labelledby="confirmation-titre" hidden></div>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<footer class="pied" id="pied">
+  <p class="badges-confiance"><span><svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><path fill="currentColor" d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg>Instant email delivery</span><span><svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><path fill="currentColor" d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5Zm-3 8V7a3 3 0 0 1 6 0v3H9Zm3 4a2 2 0 0 1 1 3.73V19h-2v-1.27A2 2 0 0 1 12 14Z"/></svg>Secure payment</span></p>
+  <ul class="liens-confiance"><li><a href="help#conditions" data-aide="conditions">Terms of use</a></li><li><a href="help#faq" data-aide="faq">FAQ</a></li><li><a href="help#avis" data-aide="avis">Reviews</a></li><li><a href="help#support" data-aide="support">Support</a></li><li><a href="help#cgv" data-aide="cgv">Terms & Conditions</a></li><li><a href="help#remboursement" data-aide="remboursement">Refund policy</a></li></ul>
+  <p class="pied-pays">Cards valid in: United States (California, New York, Texas, Florida, Illinois, Washington) and United Kingdom (England, Scotland, Wales, Northern Ireland). Prices in euros.</p>
+</footer>
+<noscript><p class="noscript">JavaScript is turned off: the 3D store and checkout are not available, but you can browse the whole catalogue above.</p></noscript>

@@ -1,0 +1,13 @@
+<!--
+  BOUTIQUE 3D DANS UNE PAGE WORDPRESS — bloc « HTML personnalisé »
+  1. Remplace https://www.ton-domaine.fr par l'adresse de ton serveur Node.
+  2. Sur le serveur, mets l'adresse de ton site WordPress dans FRAME_ANCESTORS
+     (sinon le navigateur refuse l'affichage dans le cadre).
+  Le cadre reste lisible sur mobile ; le lien sous le cadre ouvre la boutique en plein écran.
+-->
+<div style="position:relative;width:100%;height:min(86vh,880px);min-height:540px;border-radius:16px;overflow:hidden;background:#0E1626">
+  <iframe src="https://www.ton-domaine.fr/" title="Gift card store"
+          style="position:absolute;inset:0;width:100%;height:100%;border:0"
+          allow="autoplay; clipboard-write; payment" loading="lazy"></iframe>
+</div>
+<p style="text-align:center;margin:10px 0 0"><a href="https://www.ton-domaine.fr/" target="_blank" rel="noopener">Open the store full screen</a></p>
